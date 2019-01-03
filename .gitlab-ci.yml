@@ -1,0 +1,13 @@
+image: node:10
+
+stages:
+    - build
+
+build:
+    stage: build
+    script:
+        - npm i
+        - npm run build:all
+    artifacts:
+        paths:
+            - dist/

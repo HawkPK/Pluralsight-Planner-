@@ -1,0 +1,15 @@
+.container
+    br
+    .row
+        .col.s9
+            .input-field
+                label.active(for='playlist-title') Playlist Name
+                input#playlist-title(type='text', name='title', ng-model='playlist.name')
+            course-select(on-course-selected='$ctrl.addCourse(course)')
+            h5.control-label.with-subtitle Courses ({{playlist.courses.length}})
+            .panel
+                courses-list(courses='playlist.courses')
+        .col.s3
+            a.btn.btn-small.green.is-block(ng-click='$ctrl.save()') {{ saveButtonText }}
+            hr
+            playlist-summary(playlist='playlist')

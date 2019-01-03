@@ -1,0 +1,32 @@
+ul.collapsible(data-collapsible='expandable')
+    li.active
+        .collapsible-header.active
+            i.mdi.mdi-apps
+            | Collections
+        .collapsible-body.active
+            .collection
+                .collection-item(ng-repeat='c in $ctrl.collections')
+                    .row
+                        .col.s6 {{c.key | uppercase}}
+                        .col.s2.right-align
+                            span.new.badge.v-align(data-badge-caption='{{c.size}}')
+                        .col.s4.right-align
+                            button.waves-effect.waves-light.orange.darken-3.btn(data-badge-caption='', ng-click='$ctrl.removeCollection(c.key)')
+                                i.mdi.mdi-delete
+            br
+            .center-align
+                button.waves-effect.waves-light.red.darken-1.btn(ng-click='$ctrl.clearAllData()') Clear All Data
+
+    li
+        .collapsible-header
+            i.mdi.mdi-flask
+            | Experimental features
+            .switch.section-switch
+                label
+                    input(disabled='', type='checkbox')
+                    span.lever
+
+        .collapsible-body
+            p
+                input#test1(type='checkbox', disabled='disabled')
+                label(for='test1') Experimental Feature #1 (comming soon)

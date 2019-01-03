@@ -1,0 +1,61 @@
+
+.modal-content
+    .is-block
+        .flex-center.valign-wrapper.is-v-block(ng-if='loading')
+            .preloader-wrapper.active
+                .spinner-layer.spinner-teal-only
+                    .circle-clipper.left
+                        .circle
+                    .gap-patch
+                        .circle
+                    .circle-clipper.right
+                        .circle
+
+        .user-info(ng-if='!loading && $ctrl.user')
+            .row
+                .col.xl6.offset-xl3.s8.offset-s2
+                    .collection.inner-dark
+                        .collection-item.avatar
+                            img.circle(ng-src='{{ $ctrl.user.gravatar }}')
+                            p
+                                strong {{ $ctrl.user.firstName }} {{ $ctrl.user.lastName }}
+                                br
+                                small {{ $ctrl.user.email }}
+
+        .channels(ng-if='!loading && $ctrl.channels')
+            h5.center-align Choose channels
+            .row
+                .col.xl10.offset-xl1.s12
+                    .collection.inner-dark
+                        .collection-item
+                            table.bordered.compact
+                                tr
+                                    th
+                                    th Name
+                                    th Created
+                                    th Progress
+                                tr(ng-repeat='c in $ctrl.channels', ng-class='{selected: c.selected}')
+                                    td(ng-if='!c.imported')
+                                        input.filled-in(type='checkbox', id='import_{{c.id}}', ng-model='c.selected')
+                                        label.filled-in-box(for='import_{{c.id}}')
+                                    td(ng-if='c.imported')
+                                        input.filled-in(type='checkbox', checked='checked', disabled='disabled')
+                                        label.filled-in-box
+                                    td {{ c.name }}
+                                    td.date: time {{ c.createdDate | date: 'longDate' }}
+                                    td {{ c.progressTime }} | {{ c.progressPercentValue }}
+
+        p(ng-if='!loading && accessFailure')
+            | Please log in to Pluralsight first.
+            br
+            a(href='{{ loginUrl }}', target='_blank', rel="noopener noreferrer") Log in now
+
+        p(ng-if='!loading && otherFailure')
+            | Cannot fetch from Pluralsight. You might find helpful error details in the DevTools console.
+            br
+            a(href='{{ issuesUrl }}', target='_blank', rel="noopener noreferrer") Report new bug
+
+.modal-footer
+    button.modal-action.modal-close.waves-effect.waves-green.btn.green(ng-click='$ctrl.import()') Import
+    | 
+    button.modal-action.modal-close.waves-effect.waves-green.btn.red Close

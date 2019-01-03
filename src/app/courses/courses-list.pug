@@ -1,0 +1,29 @@
+ul.collection(dnd-list='$ctrl.coursesVM')
+    li.collection-item(
+        ng-repeat='course in $ctrl.coursesVM',
+        dnd-draggable='course',
+        dnd-moved='$ctrl.move($index)',
+        dnd-effect-allowed='move'
+    )
+        span
+            | {{course.title}}
+            | 
+            a(href='{{course.url}}', target='_blank', rel="noopener noreferrer")
+                i.mdi.mdi-open-in-new
+
+        .input-field
+            i.prefix.mdi.mdi-tag-multiple
+            tags-input(ng-model='course.tags', display-property='text', placeholder='Add a tag', replace-spaces-with-dashes='false', template='tag-template')
+                auto-complete(source='course.tags', min-length='0', load-on-focus='true', load-on-empty='true', max-results-to-show='32')
+
+        .collection-actions
+            .circle.c100.c100-green(class='p{{ course.percentComplete | number : 0 }}')
+                span {{ course.percentComplete | number : 0 }}%
+                .slice
+                    .bar
+                    .fill
+            button.waves-effect.waves-light.btn.btn-floating.square(ng-class="item.status ? 'green' : 'orange'" ng-click="item.status = !item.status")
+                i.mdi(ng-class="item.status ? 'mdi-check' : 'mdi-play'")
+            button.waves-effect.waves-light.btn.btn-floating.square.red(ng-click='$ctrl.remove($index)')
+                i.mdi.mdi-delete
+

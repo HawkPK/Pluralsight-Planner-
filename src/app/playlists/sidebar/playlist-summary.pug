@@ -1,0 +1,32 @@
+.summary-panel(ng-if='$ctrl.playlist')
+    .card
+        .card-content.teal.white-text
+            i.mdi.mdi-trending-up
+            label.active.white-text {{ $ctrl.getTimeResult($ctrl.playlist.courses) }}
+            .progress
+                .determinate(ng-style="{ 'width' : $ctrl.playlist.percentComplete + '%' }")
+    .card
+        .card-content.teal.white-text
+            i.mdi.mdi-av-timer
+            label.active.white-text {{ $ctrl.getTimeToDeadline() }}
+            .progress
+                .determinate(ng-style="{ 'width' : $ctrl.getProgressDays() }")
+    .center
+        input.hide(type='text', ng-model='$ctrl.playlist.timeFrame.startDate')
+        a.relative.btn-floating.green.tooltipped(ng-click='$ctrl.pickDate($event)' data-tooltip='Pick start date')
+            i.mdi.mdi-calendar-range
+
+        input.hide(type='text', ng-model='$ctrl.playlist.timeFrame.endDate')
+        a.relative.btn-floating.red.tooltipped(ng-click='$ctrl.pickDate($event)' data-tooltip='Pick end date')
+            i.mdi.mdi-calendar-range
+
+        a.relative.btn-floating.yellow.darken-1.tooltipped(ng-click='showDescription = !showDescription' data-tooltip='Set description')
+            i.mdi.mdi-lead-pencil
+
+    div(ng-show='showDescription')
+        .card
+            .card-content.teal.white-text
+                .input-field.white-text
+                    textarea.materialize-textarea(ng-model='$ctrl.playlist.description')
+                    label.white-text ...
+                        i.mdi.mdi-lead-pencil

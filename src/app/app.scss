@@ -1,0 +1,264 @@
+$font: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+body {
+    font-family: $font;
+    font-size: 16px;
+}
+
+.brand-logo__image {
+    margin: 0 10px;
+    vertical-align: -3px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #fff;
+}
+
+.brand-logo__product-name {
+    font-weight: 200;
+}
+
+.playlists-list__row {
+    &[draggable="true"] {
+        border: 1px solid #ddd;
+    }
+}
+
+.css-serial {
+    counter-reset: serial-number;
+}
+
+.css-serial td:first-child:before {
+  counter-increment: serial-number;
+  content: counter(serial-number);
+}
+
+/**
+ * The dnd-list should always have a min-height,
+ * otherwise you can't drop to it once it's empty
+ */
+ul[dnd-list] {
+    padding-left: 0;
+}
+
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+ul[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+/**
+ * An element with .dndPlaceholder class will be
+ * added to the dnd-list while the user is dragging
+ * over it.
+ */
+ul[dnd-list] .dndPlaceholder {
+    background-color: #ddd;
+    display: block;
+    min-height: 42px;
+}
+
+ul[dnd-list] > li {
+
+    > .btn-floating {
+        margin-top: -9px;
+    }
+}
+
+.btn + .btn {
+    margin-left: 5px;
+}
+
+.btn-floating.square {
+    border-radius: 2px;
+}
+
+.btn-link {
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+fieldset {
+    border: none;
+    margin: initial;
+}
+
+.row.inline-form {
+    margin-right: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    &.with-subtitle {
+        margin-bottom: 0;
+    }
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.top-link {
+    position: relative;
+
+    &:hover {
+        background: none;
+    }
+    
+    &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 15px;
+        height: 2px;
+        width: 0%;
+        margin-left: 50%;
+        background-color: transparent;
+        transition: opacity .2s, margin .3s,  width .3s;
+    }
+    
+    &.active::after {
+        background-color: #fff;
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+
+.row .col.col-center {
+    float: none;
+    margin: 0 auto;
+}
+
+table.compact {
+    [type="checkbox"]+label {
+        top: 5px;
+        left: 10px;
+    }
+    td,
+    th {
+        padding: 5px;
+    }
+}
+
+.pluralsight-dark {
+    color: #fff;
+    font-family: 'Proxima Nova', $font;
+
+    &,
+    .modal-footer {
+        background: #181818;
+    }
+    .collection.inner-dark {
+        border: none;
+        .collection-item {
+            background: #222;
+
+            &.avatar {
+                min-height: 0;
+
+                p {
+                    margin: -2px 0 0;
+                }
+            }
+        }
+    }
+
+    table.bordered>thead>tr,
+    table.bordered>tbody>tr {
+        border-color: #333;
+        
+        &:hover,
+        &.selected {
+            background: rgba(54,54,54,.6);
+        }
+    }
+
+    [type="checkbox"].filled-in:checked {
+        + label:after {
+            border-color: #f96816;
+            background-color: #f96816;
+        }
+
+        &:disabled + label:after {
+            background-color: #949494;
+            border-color: #949494;
+        }
+    }
+
+    td.date {
+        color: #aaa;
+    }
+}
+
+.is-block {
+    width: 100%;
+}
+
+.is-v-block {
+    height: 100%;
+}
+
+.collection-item {
+    position: relative;
+}
+
+.collection-actions {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.input-field {
+    line-height: 2.5rem;
+}
+
+.collection-actions-item {
+    position: absolute;
+    right: 50px;
+}
+
+.card-distance {
+    margin-bottom: 0px;
+}
+
+.card > .card-content {
+   padding-top: 5px;
+   padding-bottom: 5px;
+
+   .mdi {
+     margin-right: .4em;
+   }
+}
+
+a.relative {
+    position: relative;
+    margin-right: 10px;
+}
+
+.center {
+    margin: auto;
+}
+
+.circle {
+    font-size: 40px;
+}
+
+.c100.c100-green{
+    &:hover > span { color: #4db53c; }
+    .bar, .fill { border-color: #4db53c !important; }
+}
+
+.btn.green {
+    &:hover, &:focus {
+        background-color: #2e7d32 !important;
+    }
+}

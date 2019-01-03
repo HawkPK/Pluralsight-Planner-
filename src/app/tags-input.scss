@@ -1,0 +1,95 @@
+tags-input {
+    display: block;
+    *, &:after, &:before {
+      box-sizing: border-box;
+    }
+    .host {
+      position: relative;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      height: 100%;
+      &:active {
+        outline: 0;
+      }
+    }
+    .tags {
+      padding: 1px;
+      overflow: hidden;
+      word-wrap: break-word;
+      cursor: text;
+      border-bottom: 1px solid #9e9e9e;
+      height: 100%;
+      &.focused {
+        outline: 0;
+        border-bottom: 2px solid #009688;
+      }
+      .tag-list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+      .tag-item {
+        float: left;
+      }
+      .input.invalid-tag, .tag-item .remove-button:active {
+        color: red;
+      }
+      .input {
+        border: 0;
+        outline: 0;
+        margin: 2px !important;
+        padding: 0 0 0 5px;
+        float: left;
+        height: 2rem !important;
+        &:focus {
+          border: none !important;
+          box-shadow: none !important;
+        }
+      }
+    }
+    &.ng-invalid .tags {
+      box-shadow: 0 0 3px 1px rgba(255, 0, 0, 0.6);
+    }
+    .autocomplete {
+      margin-top: 5px;
+      position: absolute;
+      padding: 5px 0;
+      z-index: 999;
+      width: 100%;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      .suggestion-list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        max-height: 280px;
+        overflow-y: auto;
+        position: relative;
+      }
+      .suggestion-item {
+        padding: 5px 10px;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #000;
+        background-color: #fff;
+        &.selected {
+          background-color: #0097cf;
+          em {
+            background-color: #0097cf;
+          }
+        }
+        em {
+          color: #000;
+        }
+      }
+    }
+  }
+
+/* Include next to `input` and `label` for icon-prefix styles from Materialize */
+.input-field .prefix ~ tags-input {
+    margin-left: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem);
+}

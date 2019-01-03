@@ -1,0 +1,10 @@
+.stats
+    .stats-line
+        span.stats-label Playlists
+        span.stats-value {{ playlistsCount }}
+    .stats-line
+        span.stats-label Courses
+        span.stats-value {{ coursesCount }}
+
+button.open-left.waves-effect.waves-light.btn.btn-flat(title='Go to Playlists', ng-click='$ctrl.open("app/index.html")') Playlists
+button.open-right.waves-effect.waves-light.btn.btn-flat(title='Go to Options', ng-click='$ctrl.open("options/options.html")') Options

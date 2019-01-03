@@ -1,0 +1,11 @@
+.row.inline-form
+    .col.s11
+        .input-field
+            i.mdi.mdi-search-web.prefix
+            input#course_input(type='text', maxlength='50', ng-model='selectedCourseTitle')
+            label(for='course_input') Find course by title
+
+    .col.s1
+        .input-field
+            button.btn.btn-small.btn-floating.square.green(ng-click='$ctrl.chooseAndClear()')
+                i.mdi.mdi-plus

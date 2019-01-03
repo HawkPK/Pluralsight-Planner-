@@ -1,0 +1,21 @@
+//Sprawdzam czy playlist jest pusta w store program
+    //Tak
+        //Pobieram dane z storage i przypisuje je do store programu
+        //Przypisuje dane z store programu do playlist widoku List.vue       
+    //Nie
+        //Przypisuje dane z store programu do playlist widoku List.vue //Przypisuje dane z store od programu
+
+
+//LocalStorage
+    //Zapisywanie
+        //Pobranie istniejacej listy
+            //Iterate by each element from storage
+        //Dodanie do niego nowego elementu
+        //Zapisanie
+            //Do LocalStorage
+            //Do Playlists
+
+    //Otworzenie
+        //Pobranie istniejacej listy
+            //Zapisanie
+                //Do Playlists

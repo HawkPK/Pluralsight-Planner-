@@ -1,0 +1,24 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+# Bower assets
+vendor
+
+# Build artefacts
+bin
+dist
+.cache
+
+# Editor files
+.idea
+
+# Keys to sign extension package
+key.pem*
+
+# Disallowed (licensing)
+gotham.scss

@@ -1,0 +1,15 @@
+doctype html
+head
+    link(rel='stylesheet', href='libs.css')
+    link(rel='stylesheet', href='styles.css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500', rel='stylesheet', type='text/css')
+body(ng-app='popup')
+    img.bg(src='../images/popup-300x120.png')
+    img.compass(src='../images/compass.svg')
+    a.beta(href='https://gitlab.com/jsek/pluralsight-planner', target='_blank', rel="noopener noreferrer") Beta
+    #divider_line
+    .popup
+        popup-page
+
+    script(src='libs.js')
+    script(src='scripts.js')

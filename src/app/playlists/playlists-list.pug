@@ -1,0 +1,44 @@
+.container
+    br
+    br
+    .row(ng-if='!$ctrl.playlists.length')
+        .col.s6.col-center
+            .card.indigo.darken-1 
+                .card-content.white-text
+                    span.card-title Welcome!
+                    p Add your first playlist or import existing directly from Pluralsight
+                .card-action
+                    a.btn.green(ng-link="['PlaylistsNew']") Add new
+                    a.btn.orange.darken-3.right(ng-click='$ctrl.openImport("#import-modal")') Import
+
+    .playlists(ng-if='$ctrl.playlists.length')
+        table.bordered
+            tr
+                th.left-align
+                    a(href="" ng-click="orderByField='name'; reverseSort=!reverseSort") Title 
+                        span(ng-show="orderByField == 'name'")
+                            i.mdi.mdi-chevron-up(ng-show='!reverseSort')
+                            i.mdi.mdi-chevron-down(ng-show='reverseSort')
+                th.center-align
+                    a(href="" ng-click="orderByField='courses.length'; reverseSort=!reverseSort") Courses
+                        span(ng-show="orderByField == 'courses.length'")
+                            i.mdi.mdi-chevron-up(ng-show='!reverseSort')
+                            i.mdi.mdi-chevron-down(ng-show='reverseSort')
+                th.right-align
+
+            tr.playlists-list__row(ng-repeat='playlist in $ctrl.playlists | orderBy :orderByField :reverseSort')
+                td.left-align {{ playlist.name }}
+                td.center-align {{ playlist.courses.length }}
+                td.right-align
+                    a.waves-effect.waves-light.btn.grey(ng-link="['PlaylistsEdit', {id: playlist.id}]")
+                        i.mdi.mdi-pencil
+                    | &nbsp;
+                    button.waves-effect.waves-light.btn.red(ng-click='$ctrl.remove(playlist.id)')
+                        i.mdi.mdi-delete
+        br
+        .right
+            a.waves-effect.waves-light.btn.green(ng-link="['PlaylistsNew']") Add another one
+            button.btn.orange.darken-3.right(ng-click='$ctrl.openImport("#import-modal")') Import
+
+    #import-modal.modal.modal-fixed-footer.pluralsight-dark
+        playlists-import.is-block

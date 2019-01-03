@@ -1,0 +1,16 @@
+{
+    "files.exclude": {
+        "**/.cache": true,
+        "**/.git": true,
+        "**/.gitlab": true,
+        "**/.vscode": true,
+        "**/node_modules": true
+    },
+    "search.exclude": {
+        "**/.vscode": true,
+        "**/dist": true
+    },
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true
+}
